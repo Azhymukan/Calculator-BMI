@@ -1,15 +1,36 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.io.IOException;
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+    public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your height (in cm): ");
+        float heightBielecki = scanner.nextFloat();
+        System.out.print("Enter your weight (in kilograms): ");
+        float weightBielecki = scanner.nextFloat();
+        float bmi = weightBielecki / (heightBielecki * heightBielecki / 10000);
+        System.out.printf("Your BMI is: %.2f\n", bmi);
+        if (bmi < 16.00) {
+            System.out.println("BMI Category: Starvation");
+        } else if (bmi >= 16.00 && bmi <= 16.99) {
+            System.out.println("BMI Category: Emaciation");
+        } else if (bmi >= 17.00 && bmi <= 18.49) {
+            System.out.println("BMI Category: Underweight");
+        } else if (bmi >= 18.50 && bmi <= 22.99) {
+            System.out.println("BMI Category: Normal, Low Range");
+        } else if (bmi >= 23.00 && bmi <= 24.99) {
+            System.out.println("BMI Category: Normal, High Range");
+        } else if (bmi >= 25.00 && bmi <= 27.49) {
+            System.out.println("BMI Category: Overweight, Low Range");
+        } else if (bmi >= 27.50 && bmi <= 29.99) {
+            System.out.println("BMI Category: Overweight, High Range");
+        } else if (bmi >= 30.00 && bmi <= 34.9) {
+            System.out.println("BMI Category: 1st Degree Obesity");
+        } else if (bmi >= 35.00 && bmi <= 39.9) {
+            System.out.println("BMI Category: 2nd Degree Obesity");
+        } else {
+            System.out.println("BMI Category: 3rd Degree Obesity");
         }
+        scanner.close();
     }
 }
